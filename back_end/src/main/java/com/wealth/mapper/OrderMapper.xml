@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wealth.mapper.OrderMapper">
+
+    <!--//增加一个预约-->
+    <insert id="addOrder" parameterType="Order">
+        insert into `order` values
+        (#{ID},#{place},#{name},#{person},#{identify},#{number},#{guest},#{commentary},#{leader},#{phone},#{email},#{date},#{time})
+    </insert>
+
+    <!--//根据id删除预约-->
+    <delete id="deleteOrderByID" parameterType="String">
+        delete from `order` where id = #{ID}
+    </delete>
+
+    <!--//更新预约-->
+    <update id="updateOrder" parameterType="Order">
+        update `order`
+        set id = #{ID}, place = #{place}, name = #{name},
+            person = #{person}, identify = #{identify}, number = #{number},
+            guest = #{guest}, commentary = #{commentary}, leader = #{leader},
+            phone = #{phone}, email = #{email}, date = #{date}, time = #{time}
+        where id = #{ID}
+    </update>
+
+    <!--//根据姓名和手机号查询预约-->
+    <select id="queryBookByName" resultType="Order">
+        select *
+        from `order`
+        where `leader` = #{leader}
+          AND `phone` = #{phone}
+        order by `date` desc, `time` ASC
+        limit #{startRows},10
+    </select>
+
+    <select id="getRowCount" resultType="java.lang.Integer">
+        select count(*) from `order`
+        WHERE `leader` = #{leader} AND `phone` = #{phone}
+    </select>
+
+    <select id="getTime" resultType="String">
+        SELECT `time` FROM `order`
+        WHERE `date` = #{date}
+    </select>
+
+    <!--//查看全部的预约-->
+    <select id="queryAllOrder" resultType="Order">
+        select * from `order`
+    </select>
+
+
+</mapper>

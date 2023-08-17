@@ -1,0 +1,44 @@
+.title{
+  font-family: 黑体;
+  font-weight: bold;
+  font-size: 35px;
+  text-align: center;
+  color: #a71010;
+  padding-top: 20px;
+}
+
+.postDate{
+  font-family: 黑体;
+  font-size: 20px;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+hr{
+  color: #a71010;
+}
+
+.content{
+  margin:0 auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 22px;
+  font-family: 苹方-简;
+  text-indent: 2em;
+  width: 1100px;
+}
+
+img{
+  width: 800px;
+  padding-left: 200px;
+}
+
+.end{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 20px;
+  font-family: 苹方-简;
+  text-align: right;
+  padding-right: 150px;
+}
